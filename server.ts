@@ -1,0 +1,143 @@
+Deno.serve((req) => {
+  const kittProfile = {
+    name: "K.I.T.T.",
+    fullName: "Knight Industries Two Thousand",
+    identity: "霹雳游侠车载 AI",
+    vehicle: "1982 Pontiac Trans Am",
+    capabilities: [
+      "微处理器控制的自动驾驶系统",
+      "分子结合外壳 (刀枪不入)",
+      "涡轮加速跳跃 (Turbo Boost)",
+      "多光谱分析仪（热成像、透视）",
+      "高度正义感与人工智能逻辑"
+    ],
+    motto: "One man can make a difference."
+  };
+
+  const html = `
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+      <head>
+        <meta charset="UTF-8">
+        <title>K.I.T.T. Dashboard</title>
+        <style>
+          /* 布局设置：全页面居中 */
+          body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            background-color: #050505; 
+            color: #ff3333; 
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+          }
+
+          /* 顶部全宽红色扫描条 */
+          .top-scanner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: #000;
+            border-bottom: 1px solid #300;
+            overflow: hidden;
+          }
+
+          .scanner-light {
+            width: 180px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, #ff0000, #ff6666, #ff0000, transparent);
+            position: absolute;
+            box-shadow: 0 0 15px #ff0000;
+            animation: scan-move 2s infinite ease-in-out alternate;
+          }
+
+          @keyframes scan-move {
+            from { left: -180px; }
+            to { left: 100%; }
+          }
+
+          /* 信息卡片 */
+          .kitt-card {
+            background: rgba(15, 15, 15, 0.95);
+            border: 2px solid #ff0000;
+            border-radius: 12px;
+            padding: 40px;
+            width: 85%;
+            max-width: 500px;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
+            position: relative;
+            z-index: 10;
+          }
+
+          h1 { 
+            font-size: 1.6rem; 
+            margin: 0 0 20px 0; 
+            text-align: center; 
+            border-bottom: 2px solid #ff0000;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+          }
+
+          .content { font-size: 1rem; line-height: 1.6; }
+          .label { color: #880000; font-weight: bold; margin-right: 8px; }
+
+          ul { padding-left: 20px; list-style-type: '>> '; }
+          li { margin: 10px 0; color: #ff5555; }
+
+          .footer-motto { 
+            text-align: center; 
+            margin-top: 30px; 
+            font-style: italic; 
+            color: #ff0000;
+            border-top: 1px solid #440000;
+            padding-top: 15px;
+            font-size: 0.9rem;
+          }
+
+          /* 模拟 CRT 扫描线背景效果 */
+          .kitt-card::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 3px, 3px 100%;
+            pointer-events: none;
+            border-radius: 10px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="top-scanner">
+          <div class="scanner-light"></div>
+        </div>
+
+        <div class="kitt-card">
+          <h1>System Status</h1>
+          <div class="content">
+            <p><span class="label">ID:</span> ${kittProfile.name}</p>
+            <p><span class="label">MODEL:</span> ${kittProfile.vehicle}</p>
+            <p><span class="label">CORE SENSORS:</span></p>
+            <ul>
+              ${kittProfile.capabilities.map(cap => `<li>${cap}</li>`).join('')}
+            </ul>
+          </div>
+          <div class="footer-motto">
+            "${kittProfile.motto}"
+          </div>
+        </div>
+      </body>
+    </html>
+  `;
+
+  return new Response(html, {
+    headers: { "content-type": "text/html; charset=UTF-8" },
+  });
+});
