@@ -66,12 +66,33 @@ open index.html  # macOS
 ```
 kitt/
 ├── server.ts          # Deno 服务器主文件
-├── index.html         # 静态预览文件
+├── index.html         # HTML 模板文件
+├── kitt.config.json   # K.I.T.T. 配置文件（JSON格式）
 ├── .gitignore         # Git 忽略配置
 └── README.md          # 项目说明文档
 ```
 
 ## 自定义配置
+
+### 修改配置文件
+
+在 `kitt.config.json` 文件中，可以修改 K.I.T.T. 的配置数据：
+
+```json
+{
+  "name": "K.I.T.T.",
+  "fullName": "Knight Industries Two Thousand",
+  "identity": "霹雳游侠车载 AI",
+  "vehicle": "1982 Pontiac Trans Am",
+  "capabilities": [
+    "微处理器控制的自动驾驶系统",
+    "分子结合外壳 (刀枪不入)",
+    // 添加更多功能...
+    "新功能描述"
+  ],
+  "motto": "One man can make a difference."
+}
+```
 
 ### 修改配色方案
 
@@ -97,19 +118,7 @@ body, html {
 ```html
 <!-- 添加新的信息字段 -->
 <p><span class="label">FULL NAME:</span> {{fullName}}</p>
-```
-
-### 添加新功能
-
-在 `server.ts` 文件中，可以修改 K.I.T.T. 配置数据：
-
-```javascript
-const kittProfile = {
-  name: "K.I.T.T.",
-  fullName: "Knight Industries Two Thousand",
-  // 添加更多属性...
-  newFeature: "新功能描述"
-};
+<p><span class="label">IDENTITY:</span> {{identity}}</p>
 ```
 
 ### 扩展模板功能
@@ -120,6 +129,7 @@ const kittProfile = {
 html = html
   .replace('{{name}}', kittProfile.name)
   .replace('{{fullName}}', kittProfile.fullName) // 添加新的替换逻辑
+  .replace('{{identity}}', kittProfile.identity) // 添加新的替换逻辑
   .replace('{{vehicle}}', kittProfile.vehicle);
 ```
 
