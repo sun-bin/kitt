@@ -12,32 +12,6 @@ body, html {
   overflow: hidden;
 }
 
-/* 顶部全宽科技蓝扫描条 */
-.top-scanner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 8px;
-  background: #000;
-  border-bottom: 1px solid #003366;
-  overflow: hidden;
-}
-
-.scanner-light {
-  width: 180px;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, #00bfff, #66d9ff, #00bfff, transparent);
-  position: absolute;
-  box-shadow: 0 0 15px #00bfff;
-  animation: scan-move 2s infinite ease-in-out alternate;
-}
-
-@keyframes scan-move {
-  from { left: -180px; }
-  to { left: 100%; }
-}
-
 /* 信息卡片 */
 .kitt-card {
   background: rgba(15, 15, 15, 0.95);
@@ -49,6 +23,33 @@ body, html {
   box-shadow: 0 0 40px rgba(0, 191, 255, 0.2);
   position: relative;
   z-index: 10;
+}
+
+/* 卡片顶部扫描条 */
+.top-scanner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: #000;
+  border-bottom: 1px solid #003366;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+
+.scanner-light {
+  width: 120px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #00bfff, #66d9ff, #00bfff, transparent);
+  position: absolute;
+  box-shadow: 0 0 15px #00bfff;
+  animation: scan-move 2s infinite ease-in-out alternate;
+}
+
+@keyframes scan-move {
+  from { left: -120px; }
+  to { left: 100%; }
 }
 
 h1 { 
