@@ -27,7 +27,7 @@ Deno.serve((req) => {
             padding: 0; 
             height: 100%; 
             background-color: #050505; 
-            color: #ff3333; 
+            color: #00bfff; 
             font-family: 'Courier New', Courier, monospace;
             display: flex;
             justify-content: center;
@@ -35,7 +35,7 @@ Deno.serve((req) => {
             overflow: hidden;
           }
 
-          /* 顶部全宽红色扫描条 */
+          /* 顶部全宽科技蓝扫描条 */
           .top-scanner {
             position: absolute;
             top: 0;
@@ -43,16 +43,16 @@ Deno.serve((req) => {
             width: 100%;
             height: 8px;
             background: #000;
-            border-bottom: 1px solid #300;
+            border-bottom: 1px solid #003366;
             overflow: hidden;
           }
 
           .scanner-light {
             width: 180px;
             height: 100%;
-            background: linear-gradient(90deg, transparent, #ff0000, #ff6666, #ff0000, transparent);
+            background: linear-gradient(90deg, transparent, #00bfff, #66d9ff, #00bfff, transparent);
             position: absolute;
-            box-shadow: 0 0 15px #ff0000;
+            box-shadow: 0 0 15px #00bfff;
             animation: scan-move 2s infinite ease-in-out alternate;
           }
 
@@ -64,12 +64,12 @@ Deno.serve((req) => {
           /* 信息卡片 */
           .kitt-card {
             background: rgba(15, 15, 15, 0.95);
-            border: 2px solid #ff0000;
+            border: 2px solid #0088cc;
             border-radius: 12px;
             padding: 40px;
             width: 85%;
             max-width: 500px;
-            box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
+            box-shadow: 0 0 40px rgba(0, 191, 255, 0.2);
             position: relative;
             z-index: 10;
           }
@@ -78,24 +78,24 @@ Deno.serve((req) => {
             font-size: 1.6rem; 
             margin: 0 0 20px 0; 
             text-align: center; 
-            border-bottom: 2px solid #ff0000;
+            border-bottom: 2px solid #0088cc;
             padding-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 4px;
           }
 
           .content { font-size: 1rem; line-height: 1.6; }
-          .label { color: #880000; font-weight: bold; margin-right: 8px; }
+          .label { color: #0088cc; font-weight: bold; margin-right: 8px; }
 
           ul { padding-left: 20px; list-style-type: '>> '; }
-          li { margin: 10px 0; color: #ff5555; }
+          li { margin: 10px 0; color: #66d9ff; }
 
           .footer-motto { 
             text-align: center; 
             margin-top: 30px; 
             font-style: italic; 
-            color: #ff0000;
-            border-top: 1px solid #440000;
+            color: #00bfff;
+            border-top: 1px solid #003366;
             padding-top: 15px;
             font-size: 0.9rem;
           }
@@ -107,7 +107,7 @@ Deno.serve((req) => {
             position: absolute;
             top: 0; left: 0; bottom: 0; right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+                        linear-gradient(90deg, rgba(0, 191, 255, 0.03), rgba(0, 255, 191, 0.01), rgba(0, 191, 255, 0.03));
             background-size: 100% 3px, 3px 100%;
             pointer-events: none;
             border-radius: 10px;
