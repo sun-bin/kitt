@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <title>K.I.T.T. Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="top-scanner">
+      <div class="scanner-light"></div>
+    </div>
+
+    <div class="kitt-card">
+      <h1>System Status</h1>
+      <div class="content">
+        <p><span class="label">ID:</span> {{name}}</p>
+        <p><span class="label">MODEL:</span> {{vehicle}}</p>
+        <p><span class="label">CORE SENSORS:</span></p>
+        <ul>
+          {{capabilities}}
+        </ul>
+      </div>
+      <div class="footer-motto">
+        "{{motto}}"
+      </div>
+    </div>
+  </body>
+</html>
