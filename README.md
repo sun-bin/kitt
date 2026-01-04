@@ -33,9 +33,9 @@
    cd kitt
    ```
 
-2. 启动服务器：
+2. 启动服务器（需要读取文件权限）：
    ```bash
-   deno run --allow-net server.ts
+   deno run --allow-net --allow-read server.ts
    ```
 
 3. 访问界面：
@@ -75,7 +75,7 @@ kitt/
 
 ### 修改配色方案
 
-在 `server.ts` 文件中，可以修改 CSS 样式来自定义配色：
+在 `index.html` 文件中，可以修改 CSS 样式来自定义配色：
 
 ```css
 /* 修改主色调 */
@@ -90,9 +90,18 @@ body, html {
 }
 ```
 
+### 修改HTML模板
+
+在 `index.html` 文件中，可以修改HTML结构和内容，使用模板占位符动态填充数据：
+
+```html
+<!-- 添加新的信息字段 -->
+<p><span class="label">FULL NAME:</span> {{fullName}}</p>
+```
+
 ### 添加新功能
 
-可以在 `kittProfile` 对象中添加更多 K.I.T.T. 的功能和信息：
+在 `server.ts` 文件中，可以修改 K.I.T.T. 配置数据：
 
 ```javascript
 const kittProfile = {
@@ -101,6 +110,17 @@ const kittProfile = {
   // 添加更多属性...
   newFeature: "新功能描述"
 };
+```
+
+### 扩展模板功能
+
+可以在 `server.ts` 文件中添加更多模板占位符的替换逻辑：
+
+```javascript
+html = html
+  .replace('{{name}}', kittProfile.name)
+  .replace('{{fullName}}', kittProfile.fullName) // 添加新的替换逻辑
+  .replace('{{vehicle}}', kittProfile.vehicle);
 ```
 
 ## 许可证
